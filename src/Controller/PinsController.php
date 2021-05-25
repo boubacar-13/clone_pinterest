@@ -26,4 +26,6 @@ class PinsController extends AbstractController
     {
         return $this->render('pins/show.html.twig', compact('pin'));
     }
+
+    
 }
