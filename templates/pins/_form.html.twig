@@ -1,5 +1,5 @@
 {{ form_start(monFormulaire)}}
 {{ form_widget(monFormulaire)}}
 
-<input type="submit" value="{{submitButtonText ?? 'Create Pin' }}">
+<input type="submit" formnovalidate="formnovalidate" value="{{submitButtonText ?? 'Create Pin' }}">
 {{ form_end(monFormulaire)}}
