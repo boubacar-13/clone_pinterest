@@ -1,38 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Panterest!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
-           <link rel="preconnect" href="https://fonts.gstatic.com">
-           <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-       
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-            <style>
-                html, body{
-                    font-family: 'Montserrat', sans-serif;
-                }
-                .alert{
-                    padding: 10px;
-                    color: white;
-                    text-align: center;
-                    margin: 0;
-                    border: none;
-                    border-radius: 0;
-                }
-                .alert-success{
-                    background-color: green;
-                }
-                .alert-error{
-                    background-color: red;
-                }            
-                .alert-info{
-                    background-color: blue;
-                }
-            </style>
+            <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">        -->
+            {{encore_entry_link_tags('app')}}
         {% endblock %}
     </head>
 
@@ -48,8 +25,7 @@
         {{include('layouts/partials/_footer.html.twig')}}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+            {{encore_entry_script_tags('app')}}
         {% endblock %}
     </body>
 </html>
