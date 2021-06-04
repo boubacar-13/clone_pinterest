@@ -19,6 +19,7 @@ class PinType extends AbstractType
                 'allow_delete' => true,
                 // 'download_label' => 'Télécharger',ça permet de mettre un lien pr télécharger la photo
                 'download_uri' => false,
+                'imagine_pattern' => 'squared_thumbnails_small'
             ])
             ->add('title')
             ->add('description')
