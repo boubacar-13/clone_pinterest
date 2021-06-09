@@ -11,7 +11,7 @@
                         <img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('build/images/placeholder.jpeg')) | imagine_filter('squared_thumbnails_medium') }}" alt="{{ pin.title }}" class="w-100">
                     </a>
                 </div>
-                <h2 class="h5 p-3 pb-0"><a href="{{path('app_pins_show', {id: pin.id}) }}" class="text-secondary text-decoration-none">{{ pin.title }}</a></h2>
+                <h1 class="h5 p-3 pb-0"><a href="{{path('app_pins_show', {id: pin.id}) }}" class="text-secondary text-decoration-none">{{ pin.title }}</a></h1>
                 <p class="p-3 pt-0 text-muted">
                     <small>
                         Submitted 
