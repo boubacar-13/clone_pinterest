@@ -14,7 +14,7 @@ final class Version20210612075225 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'Add relation between pins and users table';
+        return 'Add relation between pins and users tableb';
     }
 
     public function up(Schema $schema): void
