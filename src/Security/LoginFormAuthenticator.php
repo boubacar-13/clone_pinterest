@@ -91,7 +91,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
-        $request->getSession()->getFlashBag()->add('success', 'Logged in successfully!');
+        $request->getSession()->getFlashBag()->add('success', 'Welcome ' . $token->getUser()->getFullName() . '!');
 
 
         // si on saisissait l'URL create mais sans ê connecté, on nous renverrai sur login puis create une fois connecté
