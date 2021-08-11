@@ -16,9 +16,19 @@
                                     <img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('build/images/placeholder.jpeg')) | imagine_filter('squared_thumbnails_medium') }}" alt="{{ pin.title }}" class="w-100">
                                 </a>
                             </div>
+                            
                             <h2 class="h5 p-3 pb-0"><a href="{{path('app_pins_show', {id: pin.id}) }}" class="text-secondary text-decoration-none">{{ pin.title }}</a></h2>
                             <!-- <p>Submitted {{pin.createdAt|ago}}</p> -->
+                            
                             <p class="p-3 pt-0 text-muted"><small>Submitted by {{pin.user.fullName}}</small></p>
+                            
+                            {# !!! La partie ci-dessous pour mettre un bouton suppression sur les pins de la page d'accueil direct !!! #}
+                            {# <a href="#" onclick="event.preventDefault(); confirm('Are u sure') && document.getElementById('js-pin-delete-form-{{ pin.id }}').submit();" class="btn btn-danger">&times;Delete</a>
+                            
+                            <form id="js-pin-delete-form-{{ pin.id }}" action="{{path('app_pins_delete', {id: pin.id})}}" method="post" style="display: none;">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token('pin_deletion_' ~ pin.id)}}">
+                                <input type="hidden" name="_method" value="DELETE">
+                            </form> #}
                         </article>
                     </div>
                 {% endfor %}
