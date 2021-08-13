@@ -16,6 +16,8 @@ use App\Form\PinType;
 
 class PinsController extends AbstractController
 {
+    // PHP 8 = #[Route('/', name:'app_home', methods:['GET'])] !!!!
+    
     /**
      * @Route("/", name="app_home", methods="GET")
      */

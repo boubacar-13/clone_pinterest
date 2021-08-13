@@ -8,6 +8,13 @@ use App\Entity\Traits\Timestampable;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
+// PHP 8 = 
+// #[ORM\Entity(repositoryClass:PinRepository::class)]
+// #[ORM\Table(name="pins")]
+// #[Vich\Uploadable]
+// #[ORM\HasLifecycleCallbacks]
+
 /**
  * @ORM\Entity(repositoryClass=PinRepository::class)
  * @ORM\Table(name="pins")
