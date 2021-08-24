@@ -30,6 +30,7 @@ class AccountController extends AbstractController
 
     /**
      * @Route("/edit", name="app_account_edit", methods={"GET","POST"})
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function edit(Request $request, EntityManagerInterface $em): Response
     {
