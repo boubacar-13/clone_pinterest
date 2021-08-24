@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Pin;
 use App\Repository\PinRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,9 +30,12 @@ class PinsController extends AbstractController
  
     /**
      * @Route("/pins/create", name="app_pins_create", methods={"GET", "POST"})
+     * @Security("is_granted('ROLE_USER') && user.isVerified() == false")     
      */
     public function create(Request $request, EntityManagerInterface $em) : Response
-    {
+    {  
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        
         $pin = new Pin;
 
         $form = $this->createForm(PinType::class, $pin);
@@ -64,8 +68,10 @@ class PinsController extends AbstractController
         return $this->render('pins/show.html.twig', compact('pin'));
     }
 
-        /**
+    /**
      * @Route("/pins/{id<[0-9]+>}/edit", name="app_pins_edit", methods={"GET", "PUT"})
+     * @Security("is_granted('ROLE_USER') && user.isVerified() == false && pin.getUser() == user")
+     * @Security("is_granted('PIN_MANAGE', pin)")
      */
     public function edit(Request $request, Pin $pin, EntityManagerInterface $em): Response
     {
@@ -91,8 +97,10 @@ class PinsController extends AbstractController
     }
     
 
-       /**
+    /**
      * @Route("/pins/{id<[0-9]+>}", name="app_pins_delete", methods={"DELETE"})
+     * @Security("is_granted('ROLE_USER') && user.isVerified() == false && pin.getUser() == user")     
+     * @Security("is_granted('PIN_MANAGE', pin)")
      */
     public function delete(Request $request, Pin $pin, EntityManagerInterface $em): Response
     {
@@ -107,3 +115,6 @@ class PinsController extends AbstractController
 
     }
 }
+
+
+
